@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 
 import './PathfindingVisualizer.css';
+import Grid from './Grid/Grid'
 
 export default class PathfindingVisualizer extends Component{
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {};
   }
 
   render() {
     return (
       <div>
-        <h1>Foo</h1>
+        <Grid />
       </div>
     );
   }
