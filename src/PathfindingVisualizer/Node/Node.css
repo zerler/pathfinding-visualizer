@@ -1,18 +1,50 @@
 .node {
   width: 25px;
   height: 25px;
-  outline: 1px solid rgb(175, 216, 248);
-  display: inline-block;
+  outline: 1px solid;
+  background-color: #f1faee;
 }
 
 .start-node {
-  background-color: rgb(126, 136, 126);
+  background-color: #1d3557;
 }
 
 .end-node {
-  background-color: rgb(0, 0, 0);
+  background-color: #e63946;
 }
 
 .wall-node {
-  background-color: blue;
+  background-color: black;
+}
+
+/* .path-node {
+  background-color: #a8dadc;
+} */
+
+.path-node {
+  animation-name: shortestPath;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+@keyframes shortestPath {
+  0% {
+    transform: scale(0.6);
+    background-color: #a8dadc;
+  }
+
+  50% {
+    transform: scale(1.2);
+    background-color: #a8dadc;
+  }
+
+  100% {
+    transform: scale(1);
+    background-color: #a8dadc;
+  }
 }

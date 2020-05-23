@@ -8,20 +8,38 @@ const END_NODE_ROW = 9;
 const END_NODE_COL = 35;
 
 export default class Grid extends Component {
-  createGrid = () => {
-    let grid = [];
+  constructor() {
+    super();
+    this.state = {}
+  }
 
-    // outer loop to create 18 rows
-    for (let i = 0; i < 18; i++) {
+  handleMouseDown(row, col) {
+    this.props.onMouseDown(row, col);
+  }
+
+  handleMouseEnter(row, col) {
+    return this.props.onMouseEnter(row, col);
+  }
+
+  createGrid() {
+    let grid = [];
+    for (let i = 0; i < 18; i++) { // outer loop to create 18 rows
       let row = [];
-      // inner loop to create 49 columns
-      for (let j = 0; j < 49; j++) {
+      for (let j = 0; j < 49; j++) { // inner loop to create 49 columns
         let type = this.determineType(i, j);
-        row.push(<Node row={i} col={j} type={type}/>);
+        row.push(
+          <Node 
+            row={i} 
+            col={j} 
+            type={type} 
+            key={i+" "+j} 
+            onMouseDown={ (row, col) => this.handleMouseDown(row, col) } 
+            onMouseEnter={ (row, col) => this.handleMouseEnter(row, col) }
+          />
+        );
       }
       grid.push(<div key={i} className='row'>{row}</div>);
     }
-
     return grid;
   }
 
